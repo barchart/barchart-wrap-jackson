@@ -11,7 +11,7 @@
 
 	<echo message="basedir : ${basedir}" />
 
-	<property name="tag" value="barchart-util-2.0.0" />
+	<property name="tag" value="barchart-wrap-jackson-1.8.6-build001" />
 
 	<target name="git">
 		<exec executable="git">

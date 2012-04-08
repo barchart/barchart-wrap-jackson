@@ -10,7 +10,7 @@
 
 	<groupId>com.barchart.wrap</groupId>
 	<artifactId>barchart-wrap-jackson</artifactId>
-	<version>1.8.6-build002-SNAPSHOT</version>
+	<version>1.8.6-build001-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<scm>
