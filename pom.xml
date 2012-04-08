@@ -15,9 +15,9 @@
 	<packaging>bundle</packaging>
 
 	<scm>
-		<url>https://github.com/barchart/barchart-wrap-json</url>
-		<connection>scm:git:git://github.com/barchart/barchart-wrap-json.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/barchart/barchart-wrap-json.git</developerConnection>
+		<url>https://github.com/barchart/barchart-wrap-jackson</url>
+		<connection>scm:git:git://github.com/barchart/barchart-wrap-jackson.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/barchart/barchart-wrap-jackson.git</developerConnection>
 	</scm>
 
 	<description>
