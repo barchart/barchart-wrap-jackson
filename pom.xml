@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.barchart.base</groupId>
+		<artifactId>barchart-archon</artifactId>
+		<version>2.1.1</version>
+	</parent>
+
+	<groupId>com.barchart.wrap</groupId>
+	<artifactId>barchart-wrap-jackson</artifactId>
+	<version>1.8.6-build001-SNAPSHOT</version>
+	<packaging>bundle</packaging>
+
+	<scm>
+		<url>https://github.com/barchart/barchart-wrap-json</url>
+		<connection>scm:git:git://github.com/barchart/barchart-wrap-json.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/barchart/barchart-wrap-json.git</developerConnection>
+	</scm>
+
+	<description>
+		bundle wrapper for json libs:
+		http://jackson.codehaus.org/
+		http://www.json.org/java/
+		https://github.com/FasterXML/jackson-datatype-json-org
+	</description>
+
+	<properties>
+
+		<jacksonVersion>1.8.6</jacksonVersion>
+
+		<jsonVersion>1.0.0</jsonVersion>
+
+	</properties>
+
+	<dependencies>
+
+		<!-- jackson -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>${jacksonVersion}</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jacksonVersion}</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- module for json.org library -->
+		<dependency>
+			<groupId>com.fasterxml.jackson</groupId>
+			<artifactId>jackson-datatype-json-org</artifactId>
+			<version>1.8.0</version>
+			<optional>true</optional>
+			<exclusions>
+				<exclusion>
+					<groupId>org.json</groupId>
+					<artifactId>json</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.barchart.wrap</groupId>
+			<artifactId>barchart-wrap-json</artifactId>
+			<version>1.0.0-build001</version>
+			<optional>true</optional>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+
+			<!-- produce bundle -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<_failok>true</_failok>
+						<_removeheaders>
+							Service-Component,
+							Include-Resource,
+							Private-Package,
+							Ignore-Package,
+						</_removeheaders>
+						<Import-Package>
+							*,
+						</Import-Package>
+						<Embed-Dependency>
+							*;scope=compile;inline=true,
+						</Embed-Dependency>
+						<Embed-Transitive>true</Embed-Transitive>
+						<Export-Package>
+							org.codehaus.jackson.*;version=${jacksonVersion},
+							com.fasterxml.*;version=${jacksonVersion},
+							org.json.*;version=${jsonVersion},
+						</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>
