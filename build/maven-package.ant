@@ -23,14 +23,10 @@
 		<exec executable="${executable}">
 
 			<arg value="clean" />
-
-			<arg value="source:jar" />
-
-			<arg value="javadoc:jar" />
-
 			<arg value="package" />
 
 		</exec>
+			
 	</target>
 
 </project>
